@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard";
 import About from "./components/About";
+import Student from "./components/Student";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
               </Route>
               <Route path="/about">
                 <About />
+              </Route>
+              <Route path="/student/:name">
+                <Student />
               </Route>
             </Switch>
           </main>
