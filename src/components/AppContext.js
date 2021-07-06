@@ -8,6 +8,19 @@ export const AppProvider = (props) => {
   // put students data set in state
   const [students, setStudents] = useState(studentsData);
 
+  // extract student names from data set
+  const names = students.map((student) => student.name);
+  // remove duplicates with Set() so we only get one of each name
+  // https://www.javascripttutorial.net/array/javascript-remove-duplicates-from-array/
+  const uniqueNames = [...new Set(names)];
+  const studentsNamesList = uniqueNames.map((student, index) => ({
+    id: index + 1,
+    name: student,
+  }));
+
+  // put student names in state
+  const [studentNames, setStudentNames] = useState(studentsNamesList);
+
   // extract list of assignment types from data set
   const assignments = students.map((student) => student.assignment);
   const uniqueAssignments = [...new Set(assignments)];
@@ -21,7 +34,7 @@ export const AppProvider = (props) => {
 
 
   return (
-    <AppContext.Provider value={{ students, setStudents, assignmentTypes, setAssignmentTypes }}>
+    <AppContext.Provider value={{ students, setStudents, studentNames, setStudentNames , assignmentTypes, setAssignmentTypes }}>
       {props.children}
     </AppContext.Provider>
   );
