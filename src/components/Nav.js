@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import StudentItem from "./StudentItem";
 
 const Nav = () => {
   return (
@@ -11,9 +12,7 @@ const Nav = () => {
         <NavLink to="/about" activeClassName="selected">
           <li className="app-nav__item">About</li>
         </NavLink>
-        <NavLink to="/test" activeClassName="selected">
-          <li className="app-nav__item">Test</li>
-        </NavLink>
+        <StudentItem />
       </ul>
     </nav>
   );
