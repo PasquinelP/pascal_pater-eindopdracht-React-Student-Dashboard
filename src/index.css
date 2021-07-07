@@ -38,14 +38,13 @@ header {
 }
 
 .page-header {
-  background-color: #282b32;
-  padding: 0 10px;
+  padding: 0 15px;
 }
 
 footer {
   background-color: #4f8bc9;
   color: #fff;
-  padding: 10px;
+  padding: 10px 15px;
   font-size: 12px;
   font-style: italic;
 }
