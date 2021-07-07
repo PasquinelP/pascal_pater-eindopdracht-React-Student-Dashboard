@@ -33,4 +33,19 @@ main {
   padding: 15px;
 }
 
+header {
+  
+}
 
+.page-header {
+  background-color: #282b32;
+  padding: 0 10px;
+}
+
+footer {
+  background-color: #4f8bc9;
+  color: #fff;
+  padding: 10px;
+  font-size: 12px;
+  font-style: italic;
+}
