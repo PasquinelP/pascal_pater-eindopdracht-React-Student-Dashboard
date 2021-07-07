@@ -28,7 +28,6 @@ const Chart = () => {
           funFactor = funFactorArray.reduce((a, b) => a + b) / funFactorArray.length;
         }
       });
-      console.log(typeof funFactor);
       return { assignmentType, funFactor, difficulty };
     }
   );
@@ -38,12 +37,12 @@ const Chart = () => {
   return (
     <div>
       <h1>Chart test</h1>
-      <VictoryChart width={400} height={200} padding={20}>
+      <VictoryChart padding={{ top: 20, bottom: 60, left: 20, right: 20 }}>
         <VictoryLine
           y={() => 1}
           style={{
             data: {
-              stroke: "#ccc",
+              stroke: "#dcdbdb",
               strokeWidth: 0.2,
             },
           }}
@@ -52,8 +51,8 @@ const Chart = () => {
           y={() => 2}
           style={{
             data: {
-              stroke: "#ccc",
-              strokeWidth: 0.2,
+              stroke: "#dcdbdb",
+              strokeWidth: 0.8,
             },
           }}
         />
@@ -61,8 +60,8 @@ const Chart = () => {
           y={() => 3}
           style={{
             data: {
-              stroke: "red",
-              strokeWidth: 0.2,
+              stroke: "#dcdbdb",
+              strokeWidth: 0.8,
             },
           }}
         />
@@ -70,8 +69,8 @@ const Chart = () => {
           y={() => 4}
           style={{
             data: {
-              stroke: "#cccccc",
-              strokeWidth: 0.3,
+              stroke: "#dcdbdb",
+              strokeWidth: 0.8,
             },
           }}
         />
@@ -79,8 +78,8 @@ const Chart = () => {
           y={() => 5}
           style={{
             data: {
-              stroke: "#ccc",
-              strokeWidth: 0.2,
+              stroke: "#dcdbdb",
+              strokeWidth: 0.8,
             },
           }}
         />
@@ -94,6 +93,7 @@ const Chart = () => {
               (item) => item.assignmentType
             )}
             barWidth={130 / averageRatingPerAssignment.length}
+            style={{ data: { fill: "#d35d4f" } }}
             animate={{
               duration: 1200,
               onLoad: { duration: 1000 },
@@ -108,6 +108,7 @@ const Chart = () => {
               (item) => item.assignmentType
             )}
             barWidth={130 / averageRatingPerAssignment.length}
+            style={{ data: { fill: "#96b97d" } }}
             animate={{
               duration: 1200,
               onLoad: { duration: 1000 },
@@ -135,8 +136,8 @@ const Chart = () => {
               dx={5}
               dy={-8}
               style={{
-                fontSize: 4,
-                fill: "grey",
+                fontSize: 5,
+                fill: "#1d334a",
               }}
               textAnchor={"end"}
             />
@@ -147,8 +148,8 @@ const Chart = () => {
           domain={[0, 5]}
           style={{
             tickLabels: {
-              fontSize: 4,
-              fill: "#223243",
+              fontSize: 5,
+              fill: "#1d334a",
             },
           }}
         />
