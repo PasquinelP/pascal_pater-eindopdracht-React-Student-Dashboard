@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import Chart from './Chart';
 
 const Student = () => {
   const { name } = useParams();
@@ -7,6 +8,7 @@ const Student = () => {
   return (
     <div>
       <h3>Page of {name}</h3>
+      <Chart clickedName={name} />
     </div>
   );
 };

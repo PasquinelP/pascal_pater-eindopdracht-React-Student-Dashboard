@@ -1,11 +1,20 @@
 import React, { useContext } from "react";
 import { VictoryBar, VictoryChart, VictoryGroup, VictoryAxis, VictoryLabel, VictoryLine } from "victory";
 import { AppContext } from "./AppContext";
+import { useParams } from "react-router-dom";
 
 const Chart = () => {
+  const { name } = useParams();
   const { students, assignmentTypes } = useContext(AppContext);
 
-  console.log("Assignment types", assignmentTypes)
+  console.log("Assignment types", assignmentTypes);
+
+  // check which name is clicked and get all assignments with ratings
+  const clickedName = name
+    ? students.filter((student) => student.name === name)
+    : students.filter((student) => student.name);
+
+  console.log("Clicked name is", clickedName);
 
   // get the average rating for funFactor and difficulty per assignment
   // go through the assignment types, then for each student in data
@@ -14,28 +23,30 @@ const Chart = () => {
   // finally get the sum of the difficulty and funfactor for each
   // divide by the length of funfactor and difficulty array to get average
   const averageRatingPerAssignment = assignmentTypes.map((type) => {
-      let assignmentType = "";
-      const funFactorArray = [];
-      const difficultyArray = [];
-      let funFactor = null;
-      let difficulty = null;
-      students.forEach((student) => {
-        if (student.assignment === type.assignmentType) {
-          assignmentType = student.assignment;
-          difficultyArray.push(parseInt(student.difficulty));
-          funFactorArray.push(parseInt(student.funFactor));
-          difficulty = difficultyArray.reduce((a, b) => a + b) / difficultyArray.length;
-          funFactor = funFactorArray.reduce((a, b) => a + b) / funFactorArray.length;
-        }
-      });
-      return { assignmentType, funFactor, difficulty };
-    }
-  );
+    let assignmentType = "";
+    const funFactorArray = [];
+    const difficultyArray = [];
+    let funFactor = null;
+    let difficulty = null;
+    clickedName.forEach((student) => {
+      if (student.assignment === type.assignmentType) {
+        assignmentType = student.assignment;
+        difficultyArray.push(parseInt(student.difficulty));
+        funFactorArray.push(parseInt(student.funFactor));
+        difficulty =
+          difficultyArray.reduce((a, b) => a + b) / difficultyArray.length;
+        funFactor =
+          funFactorArray.reduce((a, b) => a + b) / funFactorArray.length;
+      }
+    });
+    return { assignmentType, funFactor, difficulty };
+  });
 
   console.log("Average rating per assignment", averageRatingPerAssignment);
 
   return (
     <div className="chart-container">
+      <p>Clicked name is: {name}</p>
       <VictoryChart padding={{ top: 20, bottom: 60, left: 20, right: 20 }}>
         <VictoryLine
           y={() => 1}
