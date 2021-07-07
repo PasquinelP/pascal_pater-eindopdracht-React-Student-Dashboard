@@ -8,7 +8,7 @@ const Student = () => {
   return (
     <div>
       <h3>Page of {name}</h3>
-      <Chart clickedName={name} />
+      <Chart />
     </div>
   );
 };
