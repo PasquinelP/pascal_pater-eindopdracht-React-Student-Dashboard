@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AppContext } from "./AppContext";
+import Chart from './Chart';
 
 const Dashboard = () => {
 
@@ -14,7 +15,8 @@ const Dashboard = () => {
 
   return (
     <>
-      <h1>Dashboard</h1>
+      <h1>Dashboard gemiddelde rating per opdracht</h1>
+      <Chart />
     </>
   );
 };
