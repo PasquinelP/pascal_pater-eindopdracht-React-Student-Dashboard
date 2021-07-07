@@ -35,8 +35,7 @@ const Chart = () => {
   console.log("Average rating per assignment", averageRatingPerAssignment);
 
   return (
-    <div>
-      <h1>Chart test</h1>
+    <div className="chart-container">
       <VictoryChart padding={{ top: 20, bottom: 60, left: 20, right: 20 }}>
         <VictoryLine
           y={() => 1}
