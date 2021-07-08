@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 const Chart = () => {
   const { name } = useParams();
-  const { students, assignmentTypes } = useContext(AppContext);
+  const { students, assignmentTypes, sort } = useContext(AppContext);
 
   console.log("Assignment types", assignmentTypes);
 
@@ -43,6 +43,18 @@ const Chart = () => {
   });
 
   console.log("Average rating per assignment", averageRatingPerAssignment);
+
+  const sortRating = () => {
+    if (sort.sortDifficulty) {
+      return averageRatingPerAssignment.sort((a, b) => b.difficulty - a.difficulty);
+    } else if (sort.sortFunFactor) {
+      return averageRatingPerAssignment.sort((a, b) => b.funFactor - a.funFactor);
+    } else {
+       return averageRatingPerAssignment ;
+    }
+  }
+
+ sortRating();
 
   return (
     <div className="chart-container">
