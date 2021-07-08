@@ -32,9 +32,12 @@ export const AppProvider = (props) => {
   // put assignment types in state
   const [assignmentTypes, setAssignmentTypes] = useState(assignmentTypeList);
 
+  // put sort difficulty and funFactor in state
+  const [sort, setSort] = useState({sortDifficulty: false, sortFunFactor: false});
+
 
   return (
-    <AppContext.Provider value={{ students, setStudents, studentNames, setStudentNames , assignmentTypes, setAssignmentTypes }}>
+    <AppContext.Provider value={{ students, setStudents, studentNames, setStudentNames , assignmentTypes, setAssignmentTypes, sort, setSort }}>
       {props.children}
     </AppContext.Provider>
   );
