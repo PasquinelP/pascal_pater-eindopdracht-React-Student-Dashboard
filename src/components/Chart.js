@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { VictoryBar, VictoryChart, VictoryGroup, VictoryAxis, VictoryLabel, VictoryLine, VictoryLegend } from "victory";
+import { VictoryBar, VictoryChart, VictoryGroup, VictoryAxis, VictoryLabel, VictoryLine, VictoryLegend, VictoryTooltip } from "victory";
 import { AppContext } from "./AppContext";
 import { useParams } from "react-router-dom";
 
@@ -108,6 +108,27 @@ const Chart = () => {
               duration: 1200,
               onLoad: { duration: 1000 },
             }}
+            labels={({ datum }) =>
+              `${datum.assignmentType} \n Moeilijk: ${datum.difficulty}`
+            }
+            labelComponent={
+              <VictoryTooltip
+                flyoutWidth={60}
+                flyoutHeight={16}
+                cornerRadius={2}
+                pointerLength={6}
+                pointerWidth={4}
+                flyoutStyle={{
+                  stroke: "#4f8bc9",
+                  strokeWidth: 0.2,
+                  fill: "#d6e2f0",
+                }}
+                style={{
+                  fontSize: 6,
+                  fill: "#1d334a",
+                }}
+              />
+            }
           />
           <VictoryBar
             data={averageRatingPerAssignment}
@@ -123,6 +144,27 @@ const Chart = () => {
               duration: 1200,
               onLoad: { duration: 1000 },
             }}
+            labels={({ datum }) =>
+              `${datum.assignmentType} \n Leuk: ${datum.funFactor}`
+            }
+            labelComponent={
+              <VictoryTooltip
+                flyoutWidth={60}
+                flyoutHeight={16}
+                cornerRadius={2}
+                pointerLength={6}
+                pointerWidth={4}
+                flyoutStyle={{
+                  stroke: "#4f8bc9",
+                  strokeWidth: 0.2,
+                  fill: "#d6e2f0",
+                }}
+                style={{
+                  fontSize: 6,
+                  fill: "#1d334a",
+                }}
+              />
+            }
           />
         </VictoryGroup>
         <VictoryAxis
