@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { VictoryBar, VictoryChart, VictoryGroup, VictoryAxis, VictoryLabel, VictoryLine } from "victory";
+import { VictoryBar, VictoryChart, VictoryGroup, VictoryAxis, VictoryLabel, VictoryLine, VictoryLegend } from "victory";
 import { AppContext } from "./AppContext";
 import { useParams } from "react-router-dom";
 
@@ -159,6 +159,27 @@ const Chart = () => {
           style={{
             tickLabels: {
               fontSize: 5,
+              fill: "#1d334a",
+            },
+          }}
+        />
+        <VictoryLegend
+          x={180}
+          y={0}
+          orientation="horizontal"
+          data={[
+            {
+              name: "Moeilijk",
+              symbol: { fill: "#d35d4f" },
+            },
+            {
+              name: "Leuk",
+              symbol: { fill: "#96b97d" },
+            },
+          ]}
+          style={{
+            labels: {
+              fontSize: 6,
               fill: "#1d334a",
             },
           }}
