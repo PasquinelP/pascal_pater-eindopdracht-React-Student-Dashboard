@@ -41,6 +41,14 @@ header {
   padding: 0 15px;
 }
 
+.chart-container {
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  width: 90vw;
+}
+
 footer {
   background-color: #4f8bc9;
   color: #fff;
