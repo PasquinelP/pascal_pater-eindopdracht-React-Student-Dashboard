@@ -16,6 +16,7 @@ export const AppProvider = (props) => {
   const studentsNamesList = uniqueNames.map((student, index) => ({
     id: index + 1,
     name: student,
+    checked: true,
   }));
 
   // put student names in state
