@@ -12,7 +12,7 @@ const Chart = () => {
   // check which name is clicked and get all assignments with ratings
   const clickedName = name
     ? students.filter((student) => student.name === name)
-    : students.filter((student) => student.name);
+    : students.filter((student) => student.checked);
 
   console.log("Clicked name is", clickedName);
 
@@ -44,6 +44,7 @@ const Chart = () => {
 
   console.log("Average rating per assignment", averageRatingPerAssignment);
 
+  // check which sorting rating button is selected and sort accordingly
   const sortRating = () => {
     if (sort.sortDifficulty) {
       return averageRatingPerAssignment.sort((a, b) => b.difficulty - a.difficulty);
