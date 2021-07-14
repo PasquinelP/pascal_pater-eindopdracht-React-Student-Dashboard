@@ -36,9 +36,14 @@ export const AppProvider = (props) => {
   // put sort difficulty and funFactor in state
   const [sort, setSort] = useState({sortDifficulty: false, sortFunFactor: false});
 
+  // put selectedSort in state to control which radio button is checked
+  // because within React <input> is a React component, not an HTML element
+  // so grouping radio buttons together using name HTML attribute will not work
+  // to change the checked status like in HTML
+  const [selectedSort, setSelectedSort] = useState("assignment");
 
   return (
-    <AppContext.Provider value={{ students, setStudents, studentNames, setStudentNames , assignmentTypes, setAssignmentTypes, sort, setSort }}>
+    <AppContext.Provider value={{ students, setStudents, studentNames, setStudentNames, assignmentTypes, setAssignmentTypes, sort, setSort, selectedSort, setSelectedSort, }}>
       {props.children}
     </AppContext.Provider>
   );
