@@ -8,6 +8,15 @@ const StudentItem = () => {
 
   const studentChecked = (event) => {
     const value = event.target.value;
+    const studentNamesCopy = [...studentNames];
+    const studentNamesChecked = studentNamesCopy.map((student) => {
+      if (student.name === value) {
+        student.checked = !student.checked;
+      }
+      return student;
+    });
+    setStudentNames(studentNamesChecked);
+    
     const studentsCopy = [...students];
     const studentsCheckedList = studentsCopy.map((student) => {
       if (student.name === value) {
@@ -19,6 +28,7 @@ const StudentItem = () => {
   };
 
   console.log("Student selected is:", students)
+  console.log("Student names selected is", studentNames)
 
   const itemsList = studentNames.map((student) => (
     <li key={student.id}>
