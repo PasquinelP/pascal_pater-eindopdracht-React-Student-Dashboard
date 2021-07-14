@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from './Nav';
 
 const Header = () => {
   return (
@@ -7,7 +6,6 @@ const Header = () => {
       <div className="page-header">
         <h1>Winc Student Dashboard</h1>
       </div>
-      <Nav />
     </header>
   );
 };
