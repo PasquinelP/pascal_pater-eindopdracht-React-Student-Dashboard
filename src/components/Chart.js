@@ -132,8 +132,8 @@ const Chart = () => {
                 pointerLength={6}
                 pointerWidth={4}
                 flyoutStyle={{
-                  stroke: "#4f8bc9",
-                  strokeWidth: 0.2,
+                  stroke: "#d35d4f",
+                  strokeWidth: 0.4,
                   fill: "#d6e2f0",
                 }}
                 style={{
@@ -168,8 +168,8 @@ const Chart = () => {
                 pointerLength={6}
                 pointerWidth={4}
                 flyoutStyle={{
-                  stroke: "#4f8bc9",
-                  strokeWidth: 0.2,
+                  stroke: "#96b97d",
+                  strokeWidth: 0.4,
                   fill: "#d6e2f0",
                 }}
                 style={{
