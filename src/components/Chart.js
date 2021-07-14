@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { VictoryBar, VictoryChart, VictoryGroup, VictoryAxis, VictoryLabel, VictoryLine, VictoryLegend, VictoryTooltip } from "victory";
+import { VictoryBar, VictoryChart, VictoryGroup, VictoryAxis, VictoryLabel, VictoryLine, VictoryLegend, VictoryTooltip, VictoryVoronoiContainer } from "victory";
 import { AppContext } from "./AppContext";
 import { useParams } from "react-router-dom";
 
@@ -60,7 +60,10 @@ const Chart = () => {
   return (
     <div className="chart-container">
       <p>Clicked name is: {name}</p>
-      <VictoryChart padding={{ top: 20, bottom: 60, left: 20, right: 20 }}>
+      <VictoryChart
+        padding={{ top: 20, bottom: 60, left: 20, right: 20 }}
+        // containerComponent={<VictoryVoronoiContainer />}
+      >
         <VictoryLine
           y={() => 1}
           style={{
@@ -179,6 +182,68 @@ const Chart = () => {
               />
             }
           />
+{/* **** VICTORYLINE *******
+          <VictoryLine
+            data={averageRatingPerAssignment}
+            x="assignmentType"
+            y="difficulty"
+            style={{
+              data: { stroke: "#d35d4f" },
+            }}
+            animate={{
+              duration: 1200,
+              onLoad: { duration: 1000 },
+            }}
+            labels={({ datum }) =>
+              `${datum.assignmentType} \n Moeilijk: ${datum.difficulty}`
+            }
+            labelComponent={
+              <VictoryTooltip
+              cornerRadius={2}
+              pointerLength={6}
+              pointerWidth={4}
+              flyoutStyle={{
+                stroke: "#d35d4f",
+                strokeWidth: 0.4,
+                fill: "#d6e2f0",
+              }}
+              style={{
+                fontSize: 6,
+                fill: "#1d334a",
+              }}
+              />
+            }
+          />
+
+          <VictoryLine
+            data={averageRatingPerAssignment}
+            x="assignmentType"
+            y="funFactor"
+            style={{ data: { stroke: "#96b97d" } }}
+            animate={{
+              duration: 1200,
+              onLoad: { duration: 1000 },
+            }}
+            labels={({ datum }) =>
+              `${datum.assignmentType} \n Leuk: ${datum.funFactor}`
+            }
+            labelComponent={
+              <VictoryTooltip
+                cornerRadius={2}
+                pointerLength={6}
+                pointerWidth={4}
+                flyoutStyle={{
+                  stroke: "#96b97d",
+                  strokeWidth: 0.4,
+                  fill: "#d6e2f0",
+                }}
+                style={{
+                  fontSize: 6,
+                  fill: "#1d334a",
+                }}
+              />
+            }
+          /> */}
         </VictoryGroup>
         <VictoryAxis
           style={{
