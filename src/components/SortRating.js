@@ -3,19 +3,23 @@ import { AppContext } from "./AppContext";
 
 const SortRating = () => {
 
-  const { sort, setSort } = useContext(AppContext);
+  const { sort, setSort, selectedSort, setSelectedSort } = useContext(AppContext);
 
   console.log("sort difficulty is", sort.sortDifficulty);
   console.log("sort funfactor is", sort.sortFunFactor)
+  console.log("Selected sort is", selectedSort)
 
   const setSorting = (event) => {
     const value = event.target.value;
     if (value === "difficulty") {
       setSort({sortDifficulty: true, sortFunFactor: false });
+      setSelectedSort(value);
     } else if (value === "fun") {
       setSort({sortDifficulty: false, sortFunFactor: true });
+      setSelectedSort(value);
     } else if (value === "assignment") {
       setSort({ sortDifficulty: false, sortFunFactor: false });
+      setSelectedSort(value);
     }
   }
 console.log("sort is", sort)
@@ -39,6 +43,7 @@ console.log("sort is", sort)
             id="assignment"
             name="sortrating"
             value="assignment"
+            checked={selectedSort === "assignment"}
             onChange={(event) => setSorting(event)}
           />
           <label htmlFor="assignment">Sorteer op opdracht</label>
@@ -49,6 +54,7 @@ console.log("sort is", sort)
             id="difficulty"
             name="sortrating"
             value="difficulty"
+            checked={selectedSort === "difficulty"}
             onChange={(event) => setSorting(event)}
           />
           <label htmlFor="difficulty">Sorteer op Moeilijk</label>
@@ -59,6 +65,7 @@ console.log("sort is", sort)
             id="fun"
             name="sortrating"
             value="fun"
+            checked={selectedSort === "fun"}
             onChange={(event) => setSorting(event)}
           />
           <label htmlFor="fun">Sorteer op Leuk</label>
