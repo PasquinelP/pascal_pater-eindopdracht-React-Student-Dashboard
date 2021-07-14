@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { AppContext } from "./AppContext";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const StudentItem = () => {
-  
+
+  const { name } = useParams();
   const { students, setStudents, studentNames, setStudentNames } = useContext(AppContext);
 
   const studentChecked = (event) => {
@@ -16,7 +17,7 @@ const StudentItem = () => {
       return student;
     });
     setStudentNames(studentNamesChecked);
-    
+
     const studentsCopy = [...students];
     const studentsCheckedList = studentsCopy.map((student) => {
       if (student.name === value) {
@@ -30,15 +31,19 @@ const StudentItem = () => {
   console.log("Student selected is:", students)
   console.log("Student names selected is", studentNames)
 
+  console.log("Name is", name)
+
   const itemsList = studentNames.map((student) => (
     <li key={student.id}>
-      <input
-        type="checkbox"
-        id={student.id}
-        value={student.name}
-        checked={student.checked}
-        onChange={(event) => studentChecked(event)}
-      />
+      {name === undefined &&
+        <input
+          type="checkbox"
+          id={student.id}
+          value={student.name}
+          checked={student.checked}
+          onChange={(event) => studentChecked(event)}
+        />
+      }
       <Link to={`/student/${student.name}`}>{student.name}</Link>
     </li>
   ));
@@ -47,7 +52,7 @@ const StudentItem = () => {
     <>
       {itemsList}
     </>
-  );
+  )
 };
 
 export default StudentItem;
