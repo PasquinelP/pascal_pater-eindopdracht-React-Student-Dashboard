@@ -42,8 +42,10 @@ export const AppProvider = (props) => {
   // to change the checked status like in HTML
   const [selectedSort, setSelectedSort] = useState("assignment");
 
+  const [selectedChart, setSelectedChart] = useState("barchart");
+
   return (
-    <AppContext.Provider value={{ students, setStudents, studentNames, setStudentNames, assignmentTypes, setAssignmentTypes, sort, setSort, selectedSort, setSelectedSort, }}>
+    <AppContext.Provider value={{ students, setStudents, studentNames, setStudentNames, assignmentTypes, setAssignmentTypes, sort, setSort, selectedSort, setSelectedSort, selectedChart, setSelectedChart, }}>
       {props.children}
     </AppContext.Provider>
   );
