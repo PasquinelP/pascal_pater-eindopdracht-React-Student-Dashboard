@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { VictoryBar, VictoryChart, VictoryGroup, VictoryAxis, VictoryLabel, VictoryLine, VictoryLegend, VictoryTooltip, VictoryVoronoiContainer } from "victory";
 import { AppContext } from "./AppContext";
 import { useParams } from "react-router-dom";
+import SelectChart from "./SelectChart";
 
 const Chart = () => {
   const { name } = useParams();
-  const { students, assignmentTypes, sort } = useContext(AppContext);
+  const { students, assignmentTypes, sort, selectedChart } = useContext(AppContext);
 
   console.log("Assignment types", assignmentTypes);
 
@@ -57,12 +58,167 @@ const Chart = () => {
 
  sortRating();
 
+ // render bar chart or line chart based on selectedChart value (either bar chart was chosen from radio button or line chart)
+  const showChart = selectedChart === "barchart" ? (
+      
+      // Bar chart
+      <VictoryGroup offset={160 / averageRatingPerAssignment.length}>
+        <VictoryBar
+          data={averageRatingPerAssignment}
+          x="assignmentType"
+          y="difficulty"
+          tickValues={[1, 2, 3, 4, 5]}
+          tickFormat={averageRatingPerAssignment.map(
+            (item) => item.assignmentType
+          )}
+          barWidth={130 / averageRatingPerAssignment.length}
+          style={{ data: { fill: "#d35d4f" } }}
+          animate={{
+            duration: 1200,
+            onLoad: { duration: 1000 },
+          }}
+          labels={({ datum }) =>
+            `${datum.assignmentType} \n Moeilijk: ${datum.difficulty}`
+          }
+          labelComponent={
+            <VictoryTooltip
+              cornerRadius={2}
+              pointerLength={6}
+              pointerWidth={4}
+              flyoutStyle={{
+                stroke: "#d35d4f",
+                strokeWidth: 0.4,
+                fill: "#d6e2f0",
+              }}
+              style={{
+                fontSize: 6,
+                fill: "#1d334a",
+              }}
+            />
+          }
+        />
+        <VictoryBar
+          data={averageRatingPerAssignment}
+          x="assignmentType"
+          y="funFactor"
+          tickValues={[1, 2, 3, 4, 5]}
+          tickFormat={averageRatingPerAssignment.map(
+            (item) => item.assignmentType
+          )}
+          barWidth={130 / averageRatingPerAssignment.length}
+          style={{ data: { fill: "#96b97d" } }}
+          animate={{
+            duration: 1200,
+            onLoad: { duration: 1000 },
+          }}
+          labels={({ datum }) =>
+            `${datum.assignmentType} \n Leuk: ${datum.funFactor}`
+          }
+          labelComponent={
+            <VictoryTooltip
+              cornerRadius={2}
+              pointerLength={6}
+              pointerWidth={4}
+              flyoutStyle={{
+                stroke: "#96b97d",
+                strokeWidth: 0.4,
+                fill: "#d6e2f0",
+              }}
+              style={{
+                fontSize: 6,
+                fill: "#1d334a",
+              }}
+            />
+          }
+        />
+      </VictoryGroup>
+
+    ) : (
+      
+      // Line chart
+      <VictoryGroup offset={160 / averageRatingPerAssignment.length}>
+        <VictoryLine
+          data={averageRatingPerAssignment}
+          x="assignmentType"
+          y="difficulty"
+          style={{
+            data: { stroke: "#d35d4f" },
+          }}
+          animate={{
+            duration: 1200,
+            onLoad: { duration: 1000 },
+          }}
+          labels={({ datum }) =>
+            `${datum.assignmentType} \n Moeilijk: ${datum.difficulty}`
+          }
+          labelComponent={
+            <VictoryTooltip
+              cornerRadius={2}
+              pointerLength={6}
+              pointerWidth={4}
+              flyoutStyle={{
+                stroke: "#d35d4f",
+                strokeWidth: 0.4,
+                fill: "#d6e2f0",
+              }}
+              style={{
+                fontSize: 6,
+                fill: "#1d334a",
+              }}
+            />
+          }
+        />
+        <VictoryLine
+          data={averageRatingPerAssignment}
+          x="assignmentType"
+          y="funFactor"
+          style={{ data: { stroke: "#96b97d" } }}
+          animate={{
+            duration: 1200,
+            onLoad: { duration: 1000 },
+          }}
+          labels={({ datum }) =>
+            `${datum.assignmentType} \n Leuk: ${datum.funFactor}`
+          }
+          labelComponent={
+            <VictoryTooltip
+              cornerRadius={2}
+              pointerLength={6}
+              pointerWidth={4}
+              flyoutStyle={{
+                stroke: "#96b97d",
+                strokeWidth: 0.4,
+                fill: "#d6e2f0",
+              }}
+              style={{
+                fontSize: 6,
+                fill: "#1d334a",
+              }}
+            />
+          }
+        />
+      </VictoryGroup>
+    );
+// end showChart
+
+const lineContainer =
+  selectedChart === "linechart"
+    ? `<VictoryVoronoiContainer />`
+    : `<VictoryZoomContainer/>`;
+
+console.log("line container is", lineContainer)
+
+
   return (
     <div className="chart-container">
       <p>Clicked name is: {name}</p>
+      <SelectChart />
+
+      {/* {selectedChart === "barchart" && <p>Hallo barchart</p>} */}
+
       <VictoryChart
         padding={{ top: 20, bottom: 60, left: 20, right: 20 }}
-        // containerComponent={<VictoryVoronoiContainer />}
+        // containerComponent={lineContainer}
       >
         <VictoryLine
           y={() => 1}
@@ -109,8 +265,9 @@ const Chart = () => {
             },
           }}
         />
-        <VictoryGroup offset={160 / averageRatingPerAssignment.length}>
-          <VictoryBar
+        {showChart}
+        {/* <VictoryGroup offset={160 / averageRatingPerAssignment.length}> */}
+        {/* <VictoryBar
             data={averageRatingPerAssignment}
             x="assignmentType"
             y="difficulty"
@@ -181,14 +338,15 @@ const Chart = () => {
                 }}
               />
             }
-          />
-{/* **** VICTORYLINE *******
+          /> */}
+
+        {/* **** VICTORYLINE *******
           <VictoryLine
             data={averageRatingPerAssignment}
             x="assignmentType"
             y="difficulty"
             style={{
-              data: { stroke: "#d35d4f" },
+              data: { stroke: "#d35d4f", strokeWidth: 0.2 },
             }}
             animate={{
               duration: 1200,
@@ -219,7 +377,7 @@ const Chart = () => {
             data={averageRatingPerAssignment}
             x="assignmentType"
             y="funFactor"
-            style={{ data: { stroke: "#96b97d" } }}
+            style={{ data: { stroke: "#96b97d", strokeWidth: 0.2 } }}
             animate={{
               duration: 1200,
               onLoad: { duration: 1000 },
@@ -244,7 +402,7 @@ const Chart = () => {
               />
             }
           /> */}
-        </VictoryGroup>
+        {/* </VictoryGroup> */}
         <VictoryAxis
           style={{
             ticks: {
