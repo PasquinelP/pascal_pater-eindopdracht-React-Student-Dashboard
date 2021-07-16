@@ -10,12 +10,18 @@ const Chart = () => {
 
   console.log("Assignment types", assignmentTypes);
 
-  // check which name is clicked and get all assignments with ratings
-  const clickedName = name
+  // check which name is clicked or which name is selected
+  // and get all assignments with ratings
+  const selectedName = name
     ? students.filter((student) => student.name === name)
     : students.filter((student) => student.checked);
 
-  console.log("Clicked name is", clickedName);
+  console.log("Clicked name is", selectedName);
+
+  // check which assignments are selected
+  const selectedAssignments = assignmentTypes.filter((type) => type.checked);
+
+    console.log("Selected assignments from chart is", selectedAssignments)
 
   // get the average rating for funFactor and difficulty per assignment
   // go through the assignment types, then for each student in data
@@ -23,13 +29,13 @@ const Chart = () => {
   // then get the assignment name, difficulty and funFactor
   // finally get the sum of the difficulty and funfactor for each
   // divide by the length of funfactor and difficulty array to get average
-  const averageRatingPerAssignment = assignmentTypes.map((type) => {
+  const averageRatingPerAssignment = selectedAssignments.map((type) => {
     let assignmentType = "";
     const funFactorArray = [];
     const difficultyArray = [];
     let funFactor = null;
     let difficulty = null;
-    clickedName.forEach((student) => {
+    selectedName.forEach((student) => {
       if (student.assignment === type.assignmentType) {
         assignmentType = student.assignment;
         difficultyArray.push(parseInt(student.difficulty));
