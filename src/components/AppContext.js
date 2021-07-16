@@ -28,6 +28,7 @@ export const AppProvider = (props) => {
   const assignmentTypeList = uniqueAssignments.map((assignment, index) => ({
     id: index + 1,
     assignmentType: assignment,
+    checked: true,
   }));
 
   // put assignment types in state
