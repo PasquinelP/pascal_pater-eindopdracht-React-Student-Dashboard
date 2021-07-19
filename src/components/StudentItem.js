@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AppContext } from "./AppContext";
-import { Link, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 const StudentItem = () => {
 
@@ -35,7 +35,8 @@ const StudentItem = () => {
 
   const itemsList = studentNames.map((student) => (
     <li key={student.id}>
-      {name === undefined &&
+      {/* // only show checkboxes when we are not on a specific student page */}
+      {name === undefined && (
         <input
           type="checkbox"
           id={student.id}
@@ -43,8 +44,10 @@ const StudentItem = () => {
           checked={student.checked}
           onChange={(event) => studentChecked(event)}
         />
-      }
-      <Link to={`/student/${student.name}`}>{student.name}</Link>
+      )}
+      <NavLink to={`/student/${student.name}`} activeClassName="selected">
+        {student.name}
+      </NavLink>
     </li>
   ));
 
