@@ -34,8 +34,8 @@ console.log("sort is", sort)
   // };
 
   return (
-    <div className="sort-rating">
-      <h3>Sorteer op opdracht of rating</h3>
+    <div className="panel panel--action sort-rating">
+      <h4>Sorteer op opdracht of rating</h4>
       <ul className="sort-buttons">
         <li>
           <input
