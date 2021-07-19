@@ -21,7 +21,6 @@ const SelectChart = () => {
 
   return (
     <div className="select-chart">
-      <h3>Selecteer bar chart of line chart</h3>
       <ul className="select-chart__buttons">
         <li>
           <input
