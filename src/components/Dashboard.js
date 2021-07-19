@@ -3,6 +3,7 @@ import { AppContext } from "./AppContext";
 import Nav from "./Nav";
 import Chart from './Chart';
 import SortRating from "./SortRating";
+import SelectAssignment from "./SelectAssignment";
 
 const Dashboard = () => {
 
@@ -18,9 +19,10 @@ const Dashboard = () => {
   return (
     <>
       <Nav />
-      <h1>Dashboard gemiddelde rating per opdracht</h1>
+      <h1 className="page-title">Dashboard gemiddelde rating per opdracht</h1>
       <Chart />
       <SortRating />
+      <SelectAssignment />
     </>
   );
 };
