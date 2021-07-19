@@ -213,12 +213,12 @@ const Chart = () => {
 
 
   return (
-    <div className="chart-container">
+    <div className="panel chart-container">
       <p>Clicked name is: {name}</p>
       <SelectChart />
 
       <VictoryChart
-        padding={{ top: 20, bottom: 60, left: 20, right: 20 }}
+        padding={{ top: 20, bottom: 80, left: 20, right: 20 }}
         containerComponent={lineContainer}
       >
         <VictoryLine
@@ -287,11 +287,11 @@ const Chart = () => {
           )}
           tickLabelComponent={
             <VictoryLabel
-              angle={-45}
+              angle={-55}
               dx={5}
               dy={-8}
               style={{
-                fontSize: 5,
+                fontSize: 6,
                 fill: "#1d334a",
               }}
               textAnchor={"end"}
@@ -303,7 +303,7 @@ const Chart = () => {
           domain={[0, 5]}
           style={{
             tickLabels: {
-              fontSize: 5,
+              fontSize: 6,
               fill: "#1d334a",
             },
           }}
@@ -324,7 +324,7 @@ const Chart = () => {
           ]}
           style={{
             labels: {
-              fontSize: 6,
+              fontSize: 7,
               fill: "#1d334a",
             },
           }}
