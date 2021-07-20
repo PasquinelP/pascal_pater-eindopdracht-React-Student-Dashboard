@@ -214,8 +214,10 @@ const Chart = () => {
 
   return (
     <div className="panel chart-container">
-      <p>Clicked name is: {name}</p>
-      <SelectChart />
+      <div className="chart-action">
+        <SelectChart />
+        <p className="chart-info">Ratings of: <span>{name === undefined ? "all or selected students" : name}</span></p>
+      </div>
 
       <VictoryChart
         padding={{ top: 20, bottom: 80, left: 20, right: 20 }}
