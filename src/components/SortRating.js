@@ -23,19 +23,10 @@ const SortRating = () => {
     }
   }
 console.log("sort is", sort)
-  // const sortRating = () => {
-  //   if (sort === null || sort === "desc") {
-  //     songs.sort((a, b) => a.rating - b.rating);
-  //     setSort("asc");
-  //   } else if (sort === "asc") {
-  //     songs.sort((a, b) => b.rating - a.rating);
-  //     setSort("desc");
-  //   }
-  // };
 
   return (
     <div className="panel panel--action sort-rating">
-      <h4>Sorteer op opdracht of rating</h4>
+      <h3 className="panel__title">Sorteer op opdracht of rating</h3>
       <ul className="sort-buttons">
         <li>
           <input
