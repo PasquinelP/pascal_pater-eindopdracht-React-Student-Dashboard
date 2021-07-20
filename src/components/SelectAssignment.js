@@ -34,8 +34,8 @@ const SelectAssignment = () => {
   ));
 
   return (
-    <div className="select-assignment">
-      <h3>Selecteer opdracht</h3>
+    <div className="panel panel--action select-assignment">
+      <h3 className="panel__title">Selecteer opdracht</h3>
       <ul>
         {assignments}
       </ul>
