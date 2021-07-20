@@ -10,7 +10,7 @@ const Student = () => {
   return (
     <div>
       <Nav />
-      <h3>Page of {name}</h3>
+      <h1 className="page-title">Rating per opdracht van {name}</h1>
       <Chart />
       <SortRating />
     </div>
