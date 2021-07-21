@@ -36,6 +36,9 @@ const Chart = () => {
     let funFactor = null;
     let difficulty = null;
     selectedName.forEach((student) => {
+      if (student.assignment.length > 6) {
+        student.assignment = student.assignment.replace(" - Project - ", "-");
+      }
       if (student.assignment === type.assignmentType) {
         assignmentType = student.assignment;
         difficultyArray.push(parseInt(student.difficulty));
@@ -239,7 +242,7 @@ const Chart = () => {
         </div>
 
         <VictoryChart
-          padding={{ top: 20, bottom: 80, left: 20, right: 20 }}
+          padding={{ top: 20, bottom: 60, left: 20, right: 20 }}
           containerComponent={lineContainer}
         >
           <VictoryLine
