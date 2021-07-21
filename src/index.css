@@ -37,7 +37,24 @@ a {
 a:hover, a.selected {
   text-decoration: underline 2px #ffb212;
   color: #4f8bc9;
-  /* text-underline-offset: 6px; */
+}
+
+button {
+  appearance: none;
+  border: 1px solid transparent;
+  padding: 8px 12px;
+  border-radius: 42px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #ffb212;
+  color: #1d334a;
+}
+
+button:hover {
+  border: 1px solid #ffb212;
+  background-color: #fff;
+  color: #4f8bc9;
+  cursor: pointer;
 }
 
 .app {
@@ -66,6 +83,14 @@ header {
 
 .app__logo {
   height: 60px;
+}
+
+.app__header a {
+  transition: transform 2s ease-in-out;
+}
+
+.app__header a:hover {
+  transform: rotateY(180deg);
 }
 
 .app__title {
@@ -100,7 +125,7 @@ main {
 }
 
 .panel--action {
-  background-color: #d6e2f0;
+  /* background-color: #d6e2f0; */
   width: 30vw;
   margin: 6px 0;
   border-radius: 8px;
