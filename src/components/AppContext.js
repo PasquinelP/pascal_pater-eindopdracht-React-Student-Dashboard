@@ -25,7 +25,14 @@ export const AppProvider = (props) => {
   // extract list of assignment types from data set
   const assignments = students.map((student) => student.assignment);
   const uniqueAssignments = [...new Set(assignments)];
-  const assignmentTypeList = uniqueAssignments.map((assignment, index) => ({
+  // remove Project name to shorten assignment names
+  const uniqueShortenedAssignments = uniqueAssignments.map((assignment) => {
+    if (assignment.length > 6) {
+      assignment = assignment.replace(" - Project - ", "-");
+    }
+    return assignment
+  });
+  const assignmentTypeList = uniqueShortenedAssignments.map((assignment, index) => ({
     id: index + 1,
     assignmentType: assignment,
     checked: true,
@@ -43,6 +50,7 @@ export const AppProvider = (props) => {
   // to change the checked status like in HTML
   const [selectedSort, setSelectedSort] = useState("assignment");
 
+  // put selectedChart in state to see which chart type is selected
   const [selectedChart, setSelectedChart] = useState("barchart");
 
   return (
