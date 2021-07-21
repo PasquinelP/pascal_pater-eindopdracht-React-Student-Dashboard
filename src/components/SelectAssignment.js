@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
 import { AppContext } from "./AppContext";
+import AssignmentItem from "./AssignmentItem";
 
 const SelectAssignment = () => {
 
@@ -21,16 +22,7 @@ const SelectAssignment = () => {
   console.log("Assignment selected is", assignmentTypes)
 
   const assignments = assignmentTypes.map((type) => (
-    <li key={type.id}>
-      <input
-        type="checkbox"
-        id={type.id}
-        value={type.assignmentType}
-        checked={type.checked}
-        onChange={(event) => assignmentChecked(event)}
-      />
-      {type.assignmentType}
-    </li>
+    <AssignmentItem key={type.id} type={type} click={assignmentChecked} />
   ));
 
   return (
