@@ -147,6 +147,10 @@ main {
 .chart-container {
   margin: 0 auto;
   width: 90vw;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .chart-action {
@@ -165,6 +169,11 @@ main {
   color: #ffb212;
 }
 
+.chart-message {
+    font-size: 24px;
+    color: #ffb212;
+    text-align: center;
+}
 
 footer {
   background-color: #4f8bc9;
