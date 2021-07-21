@@ -30,6 +30,17 @@ const SelectAssignment = () => {
     setAssignmentTypes(allAssignmentsChecked);
   }
 
+  const deselectAllAssignments = () => {
+    const assignmentTypesCopy = [...assignmentTypes];
+    const allAssignmentsNotChecked = assignmentTypesCopy.map((type) => {
+      if (type.checked === true) {
+        type.checked = false;
+      }
+      return type;
+    });
+    setAssignmentTypes(allAssignmentsNotChecked);
+  };
+
   console.log("Assignment selected is", assignmentTypes)
 
   const assignments = assignmentTypes.map((type) => (
@@ -42,6 +53,9 @@ const SelectAssignment = () => {
       <ul>{assignments}</ul>
       <button onClick={() => selectAllAssignments()}>
         Selecteer alle opdrachten
+      </button>
+      <button onClick={() => deselectAllAssignments()}>
+        Deselecteer alle opdrachten
       </button>
     </div>
   );
