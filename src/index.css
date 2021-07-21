@@ -126,7 +126,7 @@ main {
 
 .panel--action {
   /* background-color: #d6e2f0; */
-  width: 30vw;
+  /* width: 30vw; */
   margin: 6px 0;
   border-radius: 8px;
   font-size: 15px;
@@ -147,10 +147,6 @@ main {
 .chart-container {
   margin: 0 auto;
   width: 90vw;
-  min-height: 450px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .chart-action {
@@ -173,6 +169,11 @@ main {
     font-size: 24px;
     color: #ffb212;
     text-align: center;
+}
+
+.select-assignment button {
+  margin-bottom: 6px;
+  min-width: 196px;
 }
 
 footer {
