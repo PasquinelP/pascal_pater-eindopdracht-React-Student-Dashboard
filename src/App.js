@@ -4,7 +4,6 @@ import { AppProvider } from "./components/AppContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard";
-import About from "./components/About";
 import Student from "./components/Student";
 
 function App() {
@@ -17,9 +16,6 @@ function App() {
             <Switch>
               <Route path="/" exact>
                 <Dashboard />
-              </Route>
-              <Route path="/about">
-                <About />
               </Route>
               <Route path="/student/:name">
                 <Student />
