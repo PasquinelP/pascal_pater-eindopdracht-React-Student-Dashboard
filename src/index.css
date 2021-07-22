@@ -116,8 +116,6 @@ main {
 
 .app-nav__list li {
   margin-right: 10px;
-  display: flex;
-  align-items: center;
 }
 
 .page-title {
@@ -127,7 +125,7 @@ main {
 
 .panel {
   padding: 10px;
-  box-shadow: rgba(17, 17, 26, 0.1) 0 8px 24px, rgba(17, 17, 26, 0.1) 0 16px 56px, rgba(17, 17, 26, 0.1) 0 24px 80px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   background-color: #fff;
 }
 
@@ -292,6 +290,11 @@ footer {
     column-count: initial;
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .app-nav__list li {
+    display: flex;
+    align-items: center;
   }
 
   .chart-message {
