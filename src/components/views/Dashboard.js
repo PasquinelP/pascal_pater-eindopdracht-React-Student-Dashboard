@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { AppContext } from "./AppContext";
+import { AppContext } from "../AppContext";
 import Nav from "./Nav";
-import Chart from './Chart';
+import Chart from '../Chart';
 import PanelSection from "./PanelSection";
 
 const Dashboard = () => {

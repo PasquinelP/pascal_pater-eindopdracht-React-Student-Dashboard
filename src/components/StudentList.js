@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "./AppContext";
 import { useParams } from "react-router-dom";
-import StudentItem from "./StudentItem";
+import StudentItem from "./views/StudentItem";
 
 const StudentList = () => {
 

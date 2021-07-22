@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { VictoryBar, VictoryChart, VictoryGroup, VictoryAxis, VictoryLabel, VictoryLine, VictoryLegend, VictoryTooltip, VictoryVoronoiContainer } from "victory";
 import { AppContext } from "./AppContext";
 import { useParams } from "react-router-dom";
-import SelectChart from "./SelectChart";
+import SelectChart from "./select/SelectChart";
 
 const Chart = () => {
   const { name } = useParams();

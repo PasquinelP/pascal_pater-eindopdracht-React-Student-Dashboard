@@ -1,6 +1,6 @@
 import React from "react";
-import SortRating from "./SortRating";
-import SelectAssignment from "./SelectAssignment";
+import SortRating from "../SortRating";
+import SelectAssignment from "../select/SelectAssignment";
 
 const PanelSection = () => {
   return (

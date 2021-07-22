@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import StudentList from "./StudentList";
+import StudentList from "../StudentList";
 
 const Nav = () => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Nav from "./Nav";
-import Chart from './Chart';
+import Chart from '../Chart';
 import PanelSection from "./PanelSection";
 
 const Student = () => {

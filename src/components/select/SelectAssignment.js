@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
-import { AppContext } from "./AppContext";
-import AssignmentItem from "./AssignmentItem";
+import { AppContext } from "../AppContext";
+import AssignmentItem from "../views/AssignmentItem";
 
 const SelectAssignment = () => {
 
