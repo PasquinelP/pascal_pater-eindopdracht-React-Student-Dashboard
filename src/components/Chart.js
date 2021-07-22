@@ -216,147 +216,150 @@ const Chart = () => {
 
 
   return (
-    <div className="panel chart-container">
+    <section className="chart-container">
+      <div className="panel">
+        {/* check if no students or assignments have been selected, if so, 
+        show message to select minimal of 1 student and assignment */}
+        {selectedName.length === 0 && (
+          <div className="chart-message">Selecteer minimaal 1 student</div>
+        )}
+        {selectedAssignments.length === 0 && (
+          <div className="chart-message">Selecteer minimaal 1 opdracht</div>
+        )}
 
-      {/* check if no students or assignments have been selected, if so, 
-      show message to select minimal of 1 student and assignment */}
-      {selectedName.length === 0 && (
-        <div className="chart-message">Selecteer minimaal 1 student</div>
-      )}
-      {selectedAssignments.length === 0 && (
-        <div className="chart-message">Selecteer minimaal 1 opdracht</div>
-      )}
+        {/* Only show chart if minimal of 1 student and 1 assignment is selected */}
+        {selectedName.length > 0 && selectedAssignments.length > 0 && (
+          <>
+            <div className="chart-action">
+              {/* component to select bar or line chart */}
+              <SelectChart />
 
-      {/* Only show chart if minimal of 1 student and 1 assignment is selected */}
-      {selectedName.length > 0 && selectedAssignments.length > 0 && 
-      <>
-        <div className="chart-action">
-          {/* component to select bar or line chart */}
-          <SelectChart />
+              {/* set conditional info */}
+              <p className="chart-info">
+                Ratings of:{" "}
+                <span>
+                  {name === undefined ? "all or selected students" : name}
+                </span>
+              </p>
+            </div>
 
-          {/* set conditional info */}
-          <p className="chart-info">
-            Ratings of:{" "}
-            <span>{name === undefined ? "all or selected students" : name}</span>
-          </p>
-        </div>
-
-        <VictoryChart
-          padding={{ top: 20, bottom: 60, left: 20, right: 20 }}
-          containerComponent={lineContainer}
-        >
-          <VictoryLine
-            y={() => 1}
-            style={{
-              data: {
-                stroke: "#dcdbdb",
-                strokeWidth: 0.2,
-              },
-            }}
-          />
-          <VictoryLine
-            y={() => 2}
-            style={{
-              data: {
-                stroke: "#dcdbdb",
-                strokeWidth: 0.8,
-              },
-            }}
-          />
-          <VictoryLine
-            y={() => 3}
-            style={{
-              data: {
-                stroke: "#dcdbdb",
-                strokeWidth: 0.8,
-              },
-            }}
-          />
-          <VictoryLine
-            y={() => 4}
-            style={{
-              data: {
-                stroke: "#dcdbdb",
-                strokeWidth: 0.8,
-              },
-            }}
-          />
-          <VictoryLine
-            y={() => 5}
-            style={{
-              data: {
-                stroke: "#dcdbdb",
-                strokeWidth: 0.8,
-              },
-            }}
-          />
-
-          {/* show bar chart or line chart depending on selection */}
-          {showChart}
-
-          <VictoryAxis
-            style={{
-              ticks: {
-                fill: "transparent",
-                size: 2,
-                stroke: "black",
-                strokeWidth: 1,
-                strokeLinecap: "round",
-                strokeLinejoin: "round",
-              },
-            }}
-            tickValues={[1, 2, 3, 4, 5]}
-            tickFormat={averageRatingPerAssignment.map(
-              (item) => item.assignmentType
-            )}
-            tickLabelComponent={
-              <VictoryLabel
-                angle={-55}
-                dx={5}
-                dy={-8}
+            <VictoryChart
+              padding={{ top: 20, bottom: 60, left: 20, right: 20 }}
+              containerComponent={lineContainer}
+            >
+              <VictoryLine
+                y={() => 1}
                 style={{
-                  fontSize: 6,
-                  fill: "#1d334a",
+                  data: {
+                    stroke: "#dcdbdb",
+                    strokeWidth: 0.2,
+                  },
                 }}
-                textAnchor={"end"}
               />
-            }
-          />
-          <VictoryAxis
-            dependentAxis
-            domain={[0, 5]}
-            style={{
-              tickLabels: {
-                fontSize: 6,
-                fill: "#1d334a",
-              },
-            }}
-          />
-          <VictoryLegend
-            x={180}
-            y={0}
-            orientation="horizontal"
-            data={[
-              {
-                name: "Moeilijk",
-                symbol: { fill: "#d35d4f" },
-              },
-              {
-                name: "Leuk",
-                symbol: { fill: "#96b97d" },
-              },
-            ]}
-            style={{
-              labels: {
-                fontSize: 7,
-                fill: "#1d334a",
-              },
-            }}
-          />
-        </VictoryChart>
-      </>
-      }
-    </div>
+              <VictoryLine
+                y={() => 2}
+                style={{
+                  data: {
+                    stroke: "#dcdbdb",
+                    strokeWidth: 0.8,
+                  },
+                }}
+              />
+              <VictoryLine
+                y={() => 3}
+                style={{
+                  data: {
+                    stroke: "#dcdbdb",
+                    strokeWidth: 0.8,
+                  },
+                }}
+              />
+              <VictoryLine
+                y={() => 4}
+                style={{
+                  data: {
+                    stroke: "#dcdbdb",
+                    strokeWidth: 0.8,
+                  },
+                }}
+              />
+              <VictoryLine
+                y={() => 5}
+                style={{
+                  data: {
+                    stroke: "#dcdbdb",
+                    strokeWidth: 0.8,
+                  },
+                }}
+              />
+
+              {/* show bar chart or line chart depending on selection */}
+              {showChart}
+
+              <VictoryAxis
+                style={{
+                  ticks: {
+                    fill: "transparent",
+                    size: 2,
+                    stroke: "black",
+                    strokeWidth: 1,
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round",
+                  },
+                }}
+                tickValues={[1, 2, 3, 4, 5]}
+                tickFormat={averageRatingPerAssignment.map(
+                  (item) => item.assignmentType
+                )}
+                tickLabelComponent={
+                  <VictoryLabel
+                    angle={-55}
+                    dx={5}
+                    dy={-8}
+                    style={{
+                      fontSize: 6,
+                      fill: "#1d334a",
+                    }}
+                    textAnchor={"end"}
+                  />
+                }
+              />
+              <VictoryAxis
+                dependentAxis
+                domain={[0, 5]}
+                style={{
+                  tickLabels: {
+                    fontSize: 6,
+                    fill: "#1d334a",
+                  },
+                }}
+              />
+              <VictoryLegend
+                x={180}
+                y={0}
+                orientation="horizontal"
+                data={[
+                  {
+                    name: "Moeilijk",
+                    symbol: { fill: "#d35d4f" },
+                  },
+                  {
+                    name: "Leuk",
+                    symbol: { fill: "#96b97d" },
+                  },
+                ]}
+                style={{
+                  labels: {
+                    fontSize: 7,
+                    fill: "#1d334a",
+                  },
+                }}
+              />
+            </VictoryChart>
+          </>
+        )}
+      </div>
+    </section>
   );
 };
 
