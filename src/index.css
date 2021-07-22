@@ -61,10 +61,11 @@ button:hover {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100%;
+  background-color: #d6e2f0;
 }
 
 header {
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
 .app__header {
@@ -75,14 +76,14 @@ header {
   left: 0;
   right: 0;
   padding: 0 15px;
-  height: 80px;
+  height: 60px;
   box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.25);
   z-index: 10;
   background-color: #fff;
 }
 
 .app__logo {
-  height: 60px;
+  height: 40px;
 }
 
 .app__header a {
@@ -95,26 +96,29 @@ header {
 
 .app__title {
   color: #4f8bc9;
-  margin: 0 auto;
+  text-align: center;
+  font-size: 26px;
 }
 
 main {
-  padding: 15px;
-  background-color: #d6e2f0;
+  max-width: 1756px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .app-nav__list {
-    display: flex;
-    flex-wrap: wrap;
+  column-count: 3;
+  margin: 10px 0;
 }
 
 .app-nav__list li {
-  margin-left: 10px;
+  margin-right: 10px;
   display: flex;
   align-items: center;
 }
 
 .page-title {
+  font-size: 26px;
   text-align: center;
 }
 
@@ -125,9 +129,7 @@ main {
 }
 
 .panel--action {
-  /* background-color: #d6e2f0; */
-  /* width: 30vw; */
-  margin: 6px 0;
+  margin: 10px 0;
   border-radius: 8px;
   font-size: 15px;
 }
@@ -145,19 +147,21 @@ main {
 }
 
 .chart-container {
-  margin: 0 auto;
-  width: 90vw;
+  /* margin: 0 auto; */
+  /* width: 90vw; */
 }
 
 .chart-action {
   display: flex;
   align-items: center;
-  font-size: 15px;
+  flex-wrap: wrap;
+  font-size: 12px;
 }
 
 .chart-info {
-  margin-left: auto;
-  font-size: 14px;
+  margin-left: 6px;
+  margin-top: 0;
+  font-size: 12px;
 }
 
 .chart-info span { 
@@ -166,14 +170,18 @@ main {
 }
 
 .chart-message {
-    font-size: 24px;
-    color: #ffb212;
-    text-align: center;
+  font-size: 18px;
+  color: #ffb212;
+  text-align: center;
+}
+
+.select-assignment ul {
+  column-count: 2;
 }
 
 .select-assignment button {
   margin-bottom: 6px;
-  min-width: 196px;
+  min-width: 100%;
 }
 
 footer {
@@ -183,3 +191,178 @@ footer {
   font-size: 12px;
   font-style: italic;
 }
+
+
+/* ------------------------------- 
+          $Media queries
+   ------------------------------- */
+
+@media screen and (min-width: 391px) {
+  .chart-info {
+    margin-top: auto;
+  }
+
+  .app__title {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 414px) {
+  .chart-info {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 445px) {
+  .select-assignment button {
+    min-width: 196px;
+    margin-right: 6px;
+  }
+
+  .app-nav__list {
+    column-count: 4;
+  }
+}
+
+@media screen and (min-width: 580px) {
+  .select-assignment ul {
+    column-count: 3;
+  }
+}
+
+@media screen and (min-width: 684px) {
+  .app-nav__list {
+    column-count: 6;
+  }
+
+  .chart-action {
+    font-size: 15px;
+  }
+
+  .chart-info {
+    font-size: 14px;
+  }
+
+  .chart-message {
+    font-size: 22px;
+  }
+
+  .panel-section {
+    display: flex;
+  }
+
+  .sort-rating {
+    margin-right: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    margin-bottom: 80px;
+  }
+
+  .app__header {
+    padding: 0 15px;
+    height: 80px;
+  }
+
+  .app__logo {
+    height: 60px;
+  }
+
+  .app__title {
+    font-size: 32px;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .panel--action {
+    font-size: 16px;
+  }
+
+  .panel__title {
+    font-size: 17px;
+  }
+
+  .app-nav__list {
+    column-count: initial;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .chart-message {
+    font-size: 24px;
+  }
+
+  .select-assignment button {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 946px) { 
+  .select-assignment ul {
+    column-count: 4;
+  }
+}
+
+@media screen and (min-width: 1024px) { 
+  .app-nav {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1200px) { 
+  .chart-container {
+    grid-area: chart;
+    margin-top: 10px;
+  }
+
+  .panel-section {
+    grid-area: panels;
+    display: block;
+  }
+
+  .sort-rating {
+    margin-right: 0;
+  }
+
+  .select-assignment ul {
+    column-count: initial;
+  }
+
+  .select-assignment button {
+    min-width: 100%;
+  }
+
+  .grid-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+    "panels chart";
+  }
+}
+
+@media screen and (min-width: 1355px) { 
+  .select-assignment ul {
+    column-count: 2;
+  }
+
+}
+
+/* 
+media queries
+
+
+.chart-container {
+  margin: 0 auto;
+  width: 90vw;
+}
+
+ */
