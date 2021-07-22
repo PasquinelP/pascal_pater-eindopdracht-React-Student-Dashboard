@@ -304,6 +304,10 @@ footer {
   .select-assignment button {
     font-size: 14px;
   }
+
+  footer {
+    font-size: 14px;
+  }
 }
 
 @media screen and (min-width: 946px) { 
