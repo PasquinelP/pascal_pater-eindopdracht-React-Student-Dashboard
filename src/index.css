@@ -64,6 +64,9 @@ button:hover {
   background-color: #d6e2f0;
 }
 
+
+/* Header */
+
 header {
   margin-bottom: 60px;
 }
@@ -144,11 +147,6 @@ main {
 
 .select-chart__buttons li {
   margin-right: 8px;
-}
-
-.chart-container {
-  /* margin: 0 auto; */
-  /* width: 90vw; */
 }
 
 .chart-action {
@@ -353,16 +351,4 @@ footer {
   .select-assignment ul {
     column-count: 2;
   }
-
 }
-
-/* 
-media queries
-
-
-.chart-container {
-  margin: 0 auto;
-  width: 90vw;
-}
-
- */
