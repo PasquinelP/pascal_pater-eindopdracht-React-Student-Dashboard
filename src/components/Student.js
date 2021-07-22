@@ -2,8 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Nav from "./Nav";
 import Chart from './Chart';
-import SortRating from "./SortRating";
-import SelectAssignment from "./SelectAssignment";
+import PanelSection from "./PanelSection";
 
 const Student = () => {
   const { name } = useParams();
@@ -12,9 +11,10 @@ const Student = () => {
     <>
       <Nav />
       <h1 className="page-title">Rating per opdracht van {name}</h1>
-      <Chart />
-      <SortRating />
-      <SelectAssignment />
+      <div className="grid-container">
+        <Chart />
+        <PanelSection />
+      </div>
     </>
   );
 };
