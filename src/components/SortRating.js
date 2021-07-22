@@ -3,11 +3,7 @@ import { AppContext } from "./AppContext";
 
 const SortRating = () => {
 
-  const { sort, setSort, selectedSort, setSelectedSort } = useContext(AppContext);
-
-  console.log("sort difficulty is", sort.sortDifficulty);
-  console.log("sort funfactor is", sort.sortFunFactor)
-  console.log("Selected sort is", selectedSort)
+  const { setSort, selectedSort, setSelectedSort } = useContext(AppContext);
 
   const setSorting = (event) => {
     const value = event.target.value;
@@ -22,7 +18,6 @@ const SortRating = () => {
       setSelectedSort(value);
     }
   }
-console.log("sort is", sort)
 
   return (
     <div className="panel panel--action sort-rating">

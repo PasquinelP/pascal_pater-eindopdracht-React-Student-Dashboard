@@ -8,20 +8,14 @@ const Chart = () => {
   const { name } = useParams();
   const { students, assignmentTypes, sort, selectedChart } = useContext(AppContext);
 
-  console.log("Assignment types", assignmentTypes);
-
   // check which name is clicked or which name is selected
   // and get all assignments with ratings
   const selectedName = name
     ? students.filter((student) => student.name === name)
     : students.filter((student) => student.checked);
 
-  console.log("Clicked name is", selectedName);
-
   // check which assignments are selected
   const selectedAssignments = assignmentTypes.filter((type) => type.checked);
-
-    console.log("Selected assignments from chart is", selectedAssignments)
 
   // get the average rating for funFactor and difficulty per assignment
   // go through the assignment types, then for each student in data
@@ -51,8 +45,6 @@ const Chart = () => {
     });
     return { assignmentType, funFactor, difficulty };
   });
-
-  console.log("Average rating per assignment", averageRatingPerAssignment);
 
   // check which sorting rating button is selected and sort accordingly
   const sortRating = () => {

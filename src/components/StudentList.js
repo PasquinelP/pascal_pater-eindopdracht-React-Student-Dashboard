@@ -29,12 +29,6 @@ const StudentList = () => {
     setStudents(studentsCheckedList);
   };
 
-  console.log("Student selected is:", students)
-  console.log("Student names selected is", studentNames)
-
-  console.log("Name is", name)
-
-
   const studentsList = studentNames.map((student) => (
     <StudentItem key={student.id} student={student} name={name} click={studentChecked} />
   ));

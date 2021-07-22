@@ -5,8 +5,6 @@ const SelectChart = () => {
 
   const { selectedChart, setSelectedChart} = useContext(AppContext);
 
-  console.log("Selected chart is", selectedChart);
-
   const setChart = (event) => {
     const value = event.target.value;
     if (value === "barchart") {
@@ -15,9 +13,6 @@ const SelectChart = () => {
       setSelectedChart(value);
     }
   };
-
-  console.log("chart is", selectedChart);
- 
 
   return (
     <div className="select-chart">

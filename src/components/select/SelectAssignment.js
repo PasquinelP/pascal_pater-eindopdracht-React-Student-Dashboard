@@ -6,7 +6,6 @@ const SelectAssignment = () => {
 
   const { assignmentTypes, setAssignmentTypes } = useContext(AppContext);
 
-
   const assignmentChecked = (event) => {
     const value = event.target.value;
     const assignmentTypesCopy = [...assignmentTypes];
@@ -40,8 +39,6 @@ const SelectAssignment = () => {
     });
     setAssignmentTypes(allAssignmentsNotChecked);
   };
-
-  console.log("Assignment selected is", assignmentTypes)
 
   const assignments = assignmentTypes.map((type) => (
     <AssignmentItem key={type.id} type={type} click={assignmentChecked} />

@@ -1,19 +1,9 @@
-import React, { useContext } from "react";
-import { AppContext } from "../AppContext";
+import React from "react";
 import Nav from "./Nav";
 import Chart from '../Chart';
 import PanelSection from "./PanelSection";
 
 const Dashboard = () => {
-
-  const { students, studentNames } = useContext(AppContext);
-
-
- console.log("Students data is: ", students);
- console.log(studentNames)
-
-
-
 
   return (
     <>
