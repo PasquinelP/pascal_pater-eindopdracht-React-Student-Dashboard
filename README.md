@@ -1,5 +1,7 @@
 # Eindopdracht React Student Dashboard
 
+[Screenshots van React Student Dashboard](#screenshots)
+
 Als eindopdracht gaan jullie een "real life" project maken. Dit wordt een project waarvan het eindresultaat dus ook echt voor de Winc Academy gebruikt gaat worden: namelijk een Student Dashboard!
 
 **Doel:** het gemakkelijk maken voor Winc docenten om in één overzicht te zien hoe de studenten de opdrachten evalueren
