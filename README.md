@@ -109,13 +109,16 @@ WincAcademy/StudentDashboardExample
 
 ## Screenshots:
 
+### Bar Chart
 ![Eindopdracht React Student Dashboard Bar Chart](./screenshot-winc-student-dashboard-bar-chart.png)
 
+### Student Page
 ![Eindopdracht React Student Dashboard Student Page](./screenshot-winc-student-dashboard-student-page.png)
 
+### Assignment Selection
 ![Eindopdracht React Student Dashboard Assignment Selection](./screenshot-winc-student-dashboard-assignment-selection.png)
-
+### Line Chart
 ![Eindopdracht React Student Dashboard Line Chart](./screenshot-winc-student-dashboard-line-chart.png)
-
+### Responsive dashboard
 ![Eindopdracht React Student Dashboard Responsive](./screenshot-winc-student-dashboard-responsive.png)
 
